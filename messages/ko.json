@@ -5,8 +5,7 @@
   },
   "hero": {
     "realtime": "15분마다 자동 업데이트",
-    "headline": "시부야에서 가장 유리한 환전소를 바로 확인.",
-    "subheadline": "3곳의 환전소 환율을 시장 환율과 비교. 색상으로 표시된 차이율로 최적의 환전소를 한눈에 알 수 있습니다."
+    "headline": "시부야에서 가장 유리한 환전소를 바로 확인."
   },
   "header": {
     "title": "시부야 외화 환율 비교",
@@ -34,10 +33,6 @@
     "unavailable": "이용 불가",
     "noHandling": "취급 없음",
     "checkInStore": "환율은 매장에서 확인해주세요"
-  },
-  "tabs": {
-    "sell": "외화 구매 (JPY→외화)",
-    "buy": "외화 판매 (외화→JPY)"
   },
   "ranking": {
     "best": "BEST",

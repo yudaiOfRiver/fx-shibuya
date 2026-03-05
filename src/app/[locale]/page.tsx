@@ -69,12 +69,9 @@ export default async function HomePage() {
           <p className="text-sm font-medium text-cyan-400 mb-1">
             {tHero("realtime")}
           </p>
-          <h2 className="text-lg sm:text-xl font-bold text-slate-50 mb-2">
+          <h2 className="text-lg sm:text-xl font-bold text-slate-50">
             {tHero("headline")}
           </h2>
-          <p className="text-sm text-slate-400 max-w-xl mx-auto">
-            {tHero("subheadline")}
-          </p>
         </section>
 
         <div className="mb-6">

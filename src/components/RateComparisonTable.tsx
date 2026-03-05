@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
 import { AllRatesData } from "@/lib/types";
 import { CURRENCIES } from "@/lib/constants";
 import CurrencyRow from "./CurrencyRow";
@@ -14,7 +13,6 @@ export type ActiveTab = "sell" | "buy";
 
 export default function RateComparisonTable({ data }: Props) {
   const [activeTab, setActiveTab] = useState<ActiveTab>("sell");
-  const t = useTranslations("tabs");
 
   return (
     <div>
@@ -29,7 +27,7 @@ export default function RateComparisonTable({ data }: Props) {
                 : "text-slate-400 hover:text-slate-200"
             }`}
           >
-            {t("sell")}
+            ¥ → $ € £ ₩
           </button>
           <button
             onClick={() => setActiveTab("buy")}
@@ -39,7 +37,7 @@ export default function RateComparisonTable({ data }: Props) {
                 : "text-slate-400 hover:text-slate-200"
             }`}
           >
-            {t("buy")}
+            $ € £ ₩ → ¥
           </button>
         </div>
       </div>

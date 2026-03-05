@@ -5,8 +5,7 @@
   },
   "hero": {
     "realtime": "每15分钟自动更新",
-    "headline": "在涩谷找到最划算的换钱店。",
-    "subheadline": "比较3家换钱店与市场汇率的差价，用颜色标识帮你一眼看出最佳汇率。"
+    "headline": "在涩谷找到最划算的换钱店。"
   },
   "header": {
     "title": "涩谷外币兑换汇率比较",
@@ -34,10 +33,6 @@
     "unavailable": "暂不可用",
     "noHandling": "不处理",
     "checkInStore": "请到店确认汇率"
-  },
-  "tabs": {
-    "sell": "购买外币（JPY→外币）",
-    "buy": "出售外币（外币→JPY）"
   },
   "ranking": {
     "best": "BEST",

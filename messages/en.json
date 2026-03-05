@@ -5,8 +5,7 @@
   },
   "hero": {
     "realtime": "Updated every 15 minutes",
-    "headline": "Find the best exchange rate in Shibuya, instantly.",
-    "subheadline": "Compare rates from 3 currency exchange shops against the market rate. Color-coded spreads show you the best deal at a glance."
+    "headline": "Find the best exchange rate in Shibuya, instantly."
   },
   "header": {
     "title": "Shibuya FX Rate Comparison",
@@ -34,10 +33,6 @@
     "unavailable": "Unavailable",
     "noHandling": "Not handled",
     "checkInStore": "Please check the rate in store"
-  },
-  "tabs": {
-    "sell": "Buy FX (JPY → FX)",
-    "buy": "Sell FX (FX → JPY)"
   },
   "ranking": {
     "best": "BEST",
