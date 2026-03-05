@@ -28,8 +28,8 @@ export default function LanguageSwitcher() {
           onClick={() => handleChange(loc)}
           className={`px-2 py-1 text-xs rounded transition-colors ${
             loc === locale
-              ? "bg-blue-600 text-white"
-              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              ? "bg-cyan-400 text-slate-900 font-semibold"
+              : "bg-slate-700 text-slate-300 hover:bg-slate-600"
           }`}
         >
           {LOCALE_LABELS[loc]}

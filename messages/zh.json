@@ -35,6 +35,15 @@
     "noHandling": "不处理",
     "checkInStore": "请到店确认汇率"
   },
+  "tabs": {
+    "sell": "购买外币（JPY→外币）",
+    "buy": "出售外币（外币→JPY）"
+  },
+  "ranking": {
+    "best": "BEST",
+    "checkInStore": "到店确认",
+    "noHandling": "不可用"
+  },
   "spread": {
     "good": "划算",
     "normal": "一般",

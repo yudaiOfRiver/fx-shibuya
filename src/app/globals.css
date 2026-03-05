@@ -3,4 +3,9 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-dark-bg: #0F172A;
+  --color-dark-card: #1E293B;
+  --color-dark-accent: #22D3EE;
+  --color-dark-best: #10B981;
+  --color-dark-text: #F8FAFC;
 }

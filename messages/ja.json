@@ -35,6 +35,15 @@
     "noHandling": "取扱なし",
     "checkInStore": "レートは店頭にてご確認ください"
   },
+  "tabs": {
+    "sell": "外貨を買う（JPY→外貨）",
+    "buy": "外貨を売る（外貨→JPY）"
+  },
+  "ranking": {
+    "best": "BEST",
+    "checkInStore": "店頭確認",
+    "noHandling": "取扱なし"
+  },
   "spread": {
     "good": "お得",
     "normal": "普通",

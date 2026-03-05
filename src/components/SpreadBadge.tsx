@@ -6,9 +6,9 @@ type Props = {
 };
 
 const LEVEL_STYLES: Record<SpreadLevel, string> = {
-  good: "bg-green-100 text-green-800",
-  normal: "bg-yellow-100 text-yellow-800",
-  expensive: "bg-red-100 text-red-800",
+  good: "bg-emerald-500/20 text-emerald-400",
+  normal: "bg-yellow-500/20 text-yellow-400",
+  expensive: "bg-red-500/20 text-red-400",
 };
 
 export default function SpreadBadge({ spreadPercent }: Props) {

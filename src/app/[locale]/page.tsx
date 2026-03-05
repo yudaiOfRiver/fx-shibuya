@@ -66,13 +66,13 @@ export default async function HomePage() {
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 py-6">
         {/* Hero section */}
         <section className="mb-8 text-center">
-          <p className="text-sm font-medium text-blue-600 mb-1">
+          <p className="text-sm font-medium text-cyan-400 mb-1">
             {tHero("realtime")}
           </p>
-          <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
+          <h2 className="text-lg sm:text-xl font-bold text-slate-50 mb-2">
             {tHero("headline")}
           </h2>
-          <p className="text-sm text-gray-500 max-w-xl mx-auto">
+          <p className="text-sm text-slate-400 max-w-xl mx-auto">
             {tHero("subheadline")}
           </p>
         </section>
@@ -84,7 +84,7 @@ export default async function HomePage() {
         <RateComparisonTable data={data} />
 
         <section className="mt-10">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">
+          <h2 className="text-lg font-bold text-slate-50 mb-4">
             {t("info")}
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">

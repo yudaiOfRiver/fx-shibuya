@@ -18,7 +18,7 @@ export default function LastUpdated({ generatedAt }: Props) {
   });
 
   return (
-    <p className="text-sm text-gray-500">
+    <p className="text-sm text-slate-500">
       {t("lastUpdated")}: {formatted} (JST)
     </p>
   );

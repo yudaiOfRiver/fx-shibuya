@@ -9,7 +9,6 @@ export default function ShopCard({ shop }: Props) {
   const t = useTranslations("shop");
   const tShops = useTranslations("shops");
 
-  // Extract the shop key name from the nameKey
   let shopKey: string;
   switch (shop.id) {
     case "travelex":
@@ -26,25 +25,25 @@ export default function ShopCard({ shop }: Props) {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-      <h3 className="font-bold text-gray-900 mb-3">
+    <div className="bg-[#1E293B] rounded-lg border border-slate-700 p-4">
+      <h3 className="font-bold text-slate-50 mb-3">
         {tShops(`${shopKey}.name`)}
       </h3>
       <dl className="space-y-2 text-sm">
         <div className="flex gap-2">
-          <dt className="text-gray-500 shrink-0 w-16">{t("address")}</dt>
-          <dd className="text-gray-700">{tShops(`${shopKey}.address`)}</dd>
+          <dt className="text-slate-500 shrink-0 w-16">{t("address")}</dt>
+          <dd className="text-slate-300">{tShops(`${shopKey}.address`)}</dd>
         </div>
         <div className="flex gap-2">
-          <dt className="text-gray-500 shrink-0 w-16">{t("hours")}</dt>
-          <dd className="text-gray-700">{tShops(`${shopKey}.hours`)}</dd>
+          <dt className="text-slate-500 shrink-0 w-16">{t("hours")}</dt>
+          <dd className="text-slate-300">{tShops(`${shopKey}.hours`)}</dd>
         </div>
         <div className="flex gap-3 mt-3">
           <a
             href={shop.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 text-sm underline"
+            className="text-cyan-400 hover:text-cyan-300 text-sm underline"
           >
             {t("website")}
           </a>
@@ -52,7 +51,7 @@ export default function ShopCard({ shop }: Props) {
             href={shop.mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 text-sm underline"
+            className="text-cyan-400 hover:text-cyan-300 text-sm underline"
           >
             {t("map")}
           </a>
