@@ -1,7 +1,12 @@
 {
   "meta": {
-    "title": "Shibuya Currency Exchange Rate Comparison",
-    "description": "Compare foreign currency exchange rates at shops in the Shibuya area. See spreads from market rates."
+    "title": "Shibuya Currency Exchange Rates | Live Comparison",
+    "description": "Compare real-time exchange rates at Shibuya money changers. Travelex, World Currency Shop & more — updated every 15 minutes with market rate spreads."
+  },
+  "hero": {
+    "realtime": "Updated every 15 minutes",
+    "headline": "Find the best exchange rate in Shibuya, instantly.",
+    "subheadline": "Compare rates from 3 currency exchange shops against the market rate. Color-coded spreads show you the best deal at a glance."
   },
   "header": {
     "title": "Shibuya FX Rate Comparison",
