@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "渋谷 外貨両替レート比較",
+    "description": "渋谷エリアの外貨両替店のレートを一覧で比較。市場レートとの乖離率も表示します。"
+  },
+  "header": {
+    "title": "渋谷 外貨両替レート比較",
+    "subtitle": "渋谷エリアの両替店レートをリアルタイム比較"
+  },
+  "lastUpdated": "最終更新",
+  "currency": {
+    "USD": "米ドル",
+    "EUR": "ユーロ",
+    "GBP": "英ポンド",
+    "AUD": "豪ドル",
+    "CNY": "中国元",
+    "KRW": "韓国ウォン",
+    "HKD": "香港ドル",
+    "TWD": "台湾ドル"
+  },
+  "table": {
+    "shop": "両替店",
+    "sell": "販売レート",
+    "buy": "買取レート",
+    "sellDescription": "外貨を買う（日本円→外貨）",
+    "buyDescription": "外貨を売る（外貨→日本円）",
+    "marketRate": "市場レート",
+    "spread": "乖離率",
+    "unavailable": "取得不可",
+    "noHandling": "取扱なし",
+    "checkInStore": "レートは店頭にてご確認ください"
+  },
+  "spread": {
+    "good": "お得",
+    "normal": "普通",
+    "expensive": "割高"
+  },
+  "shop": {
+    "info": "店舗情報",
+    "address": "住所",
+    "hours": "営業時間",
+    "website": "公式サイト",
+    "map": "地図で見る"
+  },
+  "footer": {
+    "disclaimer": "※表示レートは参考値です。実際のレートは各店舗にてご確認ください。レートは約15分ごとに更新されます。",
+    "copyright": "© 2026 渋谷外貨両替レート比較"
+  },
+  "shops": {
+    "travelex_shibuya": {
+      "name": "トラベレックス 渋谷店",
+      "address": "東京都渋谷区道玄坂2-6-17 渋東シネタワー1F",
+      "hours": "10:30〜19:00"
+    },
+    "travelex_markcity": {
+      "name": "トラベレックス 渋谷マークシティ店",
+      "address": "東京都渋谷区道玄坂1-12-5 渋谷マークシティ1F",
+      "hours": "10:00〜19:00"
+    },
+    "world_currency_shop": {
+      "name": "ワールドカレンシーショップ 渋谷道玄坂店",
+      "address": "東京都渋谷区道玄坂2-6-1",
+      "hours": "9:30〜18:30（平日）/ 10:00〜17:00（土日祝）"
+    },
+    "daikokuya": {
+      "name": "大黒屋 質渋谷店",
+      "address": "東京都渋谷区宇田川町28-3",
+      "hours": "10:00〜19:30"
+    }
+  }
+}

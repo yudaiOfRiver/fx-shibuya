@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "Shibuya Currency Exchange Rate Comparison",
+    "description": "Compare foreign currency exchange rates at shops in the Shibuya area. See spreads from market rates."
+  },
+  "header": {
+    "title": "Shibuya FX Rate Comparison",
+    "subtitle": "Compare exchange rates at Shibuya money changers in real time"
+  },
+  "lastUpdated": "Last updated",
+  "currency": {
+    "USD": "US Dollar",
+    "EUR": "Euro",
+    "GBP": "British Pound",
+    "AUD": "Australian Dollar",
+    "CNY": "Chinese Yuan",
+    "KRW": "Korean Won",
+    "HKD": "Hong Kong Dollar",
+    "TWD": "Taiwan Dollar"
+  },
+  "table": {
+    "shop": "Shop",
+    "sell": "Sell Rate",
+    "buy": "Buy Rate",
+    "sellDescription": "Buy foreign currency (JPY → FX)",
+    "buyDescription": "Sell foreign currency (FX → JPY)",
+    "marketRate": "Market Rate",
+    "spread": "Spread",
+    "unavailable": "Unavailable",
+    "noHandling": "Not handled",
+    "checkInStore": "Please check the rate in store"
+  },
+  "spread": {
+    "good": "Good",
+    "normal": "Normal",
+    "expensive": "Expensive"
+  },
+  "shop": {
+    "info": "Shop Information",
+    "address": "Address",
+    "hours": "Hours",
+    "website": "Website",
+    "map": "View on map"
+  },
+  "footer": {
+    "disclaimer": "* Displayed rates are for reference only. Please confirm actual rates at each shop. Rates are updated approximately every 15 minutes.",
+    "copyright": "© 2026 Shibuya FX Rate Comparison"
+  },
+  "shops": {
+    "travelex_shibuya": {
+      "name": "Travelex Shibuya",
+      "address": "Shibuya Cinetower 1F, 2-6-17 Dogenzaka, Shibuya-ku, Tokyo",
+      "hours": "10:30 - 19:00"
+    },
+    "travelex_markcity": {
+      "name": "Travelex Shibuya Mark City",
+      "address": "Shibuya Mark City 1F, 1-12-5 Dogenzaka, Shibuya-ku, Tokyo",
+      "hours": "10:00 - 19:00"
+    },
+    "world_currency_shop": {
+      "name": "World Currency Shop Shibuya Dogenzaka",
+      "address": "2-6-1 Dogenzaka, Shibuya-ku, Tokyo",
+      "hours": "9:30 - 18:30 (Weekdays) / 10:00 - 17:00 (Weekends & Holidays)"
+    },
+    "daikokuya": {
+      "name": "Daikokuya Shibuya",
+      "address": "28-3 Udagawacho, Shibuya-ku, Tokyo",
+      "hours": "10:00 - 19:30"
+    }
+  }
+}

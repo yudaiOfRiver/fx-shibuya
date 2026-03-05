@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "涩谷外币兑换汇率比较",
+    "description": "比较涩谷地区外币兑换店的汇率。显示与市场汇率的差距。"
+  },
+  "header": {
+    "title": "涩谷外币兑换汇率比较",
+    "subtitle": "实时比较涩谷地区兑换店汇率"
+  },
+  "lastUpdated": "最后更新",
+  "currency": {
+    "USD": "美元",
+    "EUR": "欧元",
+    "GBP": "英镑",
+    "AUD": "澳元",
+    "CNY": "人民币",
+    "KRW": "韩元",
+    "HKD": "港元",
+    "TWD": "新台币"
+  },
+  "table": {
+    "shop": "兑换店",
+    "sell": "卖出汇率",
+    "buy": "买入汇率",
+    "sellDescription": "购买外币（日元→外币）",
+    "buyDescription": "出售外币（外币→日元）",
+    "marketRate": "市场汇率",
+    "spread": "差价率",
+    "unavailable": "暂不可用",
+    "noHandling": "不处理",
+    "checkInStore": "请到店确认汇率"
+  },
+  "spread": {
+    "good": "划算",
+    "normal": "一般",
+    "expensive": "较贵"
+  },
+  "shop": {
+    "info": "店铺信息",
+    "address": "地址",
+    "hours": "营业时间",
+    "website": "官方网站",
+    "map": "查看地图"
+  },
+  "footer": {
+    "disclaimer": "※显示汇率仅供参考。实际汇率请到各店铺确认。汇率约每15分钟更新一次。",
+    "copyright": "© 2026 涩谷外币兑换汇率比较"
+  },
+  "shops": {
+    "travelex_shibuya": {
+      "name": "Travelex 涩谷店",
+      "address": "东京都涩谷区道玄坂2-6-17 涩东电影大厦1F",
+      "hours": "10:30〜19:00"
+    },
+    "travelex_markcity": {
+      "name": "Travelex 涩谷Mark City店",
+      "address": "东京都涩谷区道玄坂1-12-5 涩谷Mark City 1F",
+      "hours": "10:00〜19:00"
+    },
+    "world_currency_shop": {
+      "name": "World Currency Shop 涩谷道玄坂店",
+      "address": "东京都涩谷区道玄坂2-6-1",
+      "hours": "9:30〜18:30（工作日）/ 10:00〜17:00（周末及节假日）"
+    },
+    "daikokuya": {
+      "name": "大黑屋 涩谷店",
+      "address": "东京都涩谷区宇田川町28-3",
+      "hours": "10:00〜19:30"
+    }
+  }
+}

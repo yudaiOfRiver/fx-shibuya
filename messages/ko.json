@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "시부야 외화 환전 환율 비교",
+    "description": "시부야 지역 외화 환전소의 환율을 한눈에 비교. 시장 환율과의 차이도 표시합니다."
+  },
+  "header": {
+    "title": "시부야 외화 환율 비교",
+    "subtitle": "시부야 환전소 환율을 실시간 비교"
+  },
+  "lastUpdated": "마지막 업데이트",
+  "currency": {
+    "USD": "미국 달러",
+    "EUR": "유로",
+    "GBP": "영국 파운드",
+    "AUD": "호주 달러",
+    "CNY": "중국 위안",
+    "KRW": "한국 원",
+    "HKD": "홍콩 달러",
+    "TWD": "대만 달러"
+  },
+  "table": {
+    "shop": "환전소",
+    "sell": "판매 환율",
+    "buy": "매입 환율",
+    "sellDescription": "외화 구매 (엔→외화)",
+    "buyDescription": "외화 판매 (외화→엔)",
+    "marketRate": "시장 환율",
+    "spread": "차이율",
+    "unavailable": "이용 불가",
+    "noHandling": "취급 없음",
+    "checkInStore": "환율은 매장에서 확인해주세요"
+  },
+  "spread": {
+    "good": "저렴",
+    "normal": "보통",
+    "expensive": "비싼"
+  },
+  "shop": {
+    "info": "매장 정보",
+    "address": "주소",
+    "hours": "영업시간",
+    "website": "공식 사이트",
+    "map": "지도 보기"
+  },
+  "footer": {
+    "disclaimer": "※표시 환율은 참고용입니다. 실제 환율은 각 매장에서 확인해주세요. 환율은 약 15분마다 업데이트됩니다.",
+    "copyright": "© 2026 시부야 외화 환율 비교"
+  },
+  "shops": {
+    "travelex_shibuya": {
+      "name": "트래블렉스 시부야점",
+      "address": "도쿄도 시부야구 도겐자카 2-6-17 시부토 시네타워 1F",
+      "hours": "10:30〜19:00"
+    },
+    "travelex_markcity": {
+      "name": "트래블렉스 시부야 마크시티점",
+      "address": "도쿄도 시부야구 도겐자카 1-12-5 시부야 마크시티 1F",
+      "hours": "10:00〜19:00"
+    },
+    "world_currency_shop": {
+      "name": "월드 커런시숍 시부야 도겐자카점",
+      "address": "도쿄도 시부야구 도겐자카 2-6-1",
+      "hours": "9:30〜18:30 (평일) / 10:00〜17:00 (주말·공휴일)"
+    },
+    "daikokuya": {
+      "name": "다이코쿠야 시부야점",
+      "address": "도쿄도 시부야구 우다가와초 28-3",
+      "hours": "10:00〜19:30"
+    }
+  }
+}
