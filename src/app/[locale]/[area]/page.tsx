@@ -14,10 +14,6 @@ const BASE_URL = "https://fx-shibuya.vercel.app";
 
 export const revalidate = 900;
 
-export function generateStaticParams() {
-  return AREA_IDS.map((area) => ({ area }));
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -75,15 +71,15 @@ export default async function AreaPage({
 }: {
   params: Promise<{ locale: string; area: string }>;
 }) {
-  const { area } = await params;
+  const { locale, area } = await params;
 
   if (!AREA_IDS.includes(area as AreaId)) {
     notFound();
   }
 
   const areaId = area as AreaId;
-  const tHero = await getTranslations("hero");
-  const tArea = await getTranslations("area");
+  const tHero = await getTranslations({ locale, namespace: "hero" });
+  const tArea = await getTranslations({ locale, namespace: "area" });
   const data = await getAllRates();
   const areaConfig = AREAS[areaId];
 
