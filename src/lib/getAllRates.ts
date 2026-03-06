@@ -2,13 +2,16 @@ import { AllRatesData, ShopRates } from "./types";
 import { fetchMarketRates } from "./fetchers/marketRate";
 import { fetchWorldCurrencyShopRates } from "./fetchers/worldCurrencyShop";
 import { fetchTravelexRates } from "./fetchers/travelex";
+import { fetchShibuyaExchangeRates } from "./fetchers/shibuyaExchange";
 
 export async function getAllRates(): Promise<AllRatesData> {
-  const [marketResult, wcsResult, travelexResult] = await Promise.allSettled([
-    fetchMarketRates(),
-    fetchWorldCurrencyShopRates(),
-    fetchTravelexRates(),
-  ]);
+  const [marketResult, wcsResult, travelexResult, shibuyaExResult] =
+    await Promise.allSettled([
+      fetchMarketRates(),
+      fetchWorldCurrencyShopRates(),
+      fetchTravelexRates(),
+      fetchShibuyaExchangeRates(),
+    ]);
 
   const market =
     marketResult.status === "fulfilled" ? marketResult.value : null;
@@ -37,9 +40,32 @@ export async function getAllRates(): Promise<AllRatesData> {
     });
   }
 
-  // 大黒屋はオンラインレート取得不可
+  if (shibuyaExResult.status === "fulfilled") {
+    shops.push(shibuyaExResult.value);
+  } else {
+    shops.push({
+      shopId: "shibuya_exchange",
+      rates: {},
+      fetchedAt: new Date().toISOString(),
+      error: shibuyaExResult.reason?.message || "Failed to fetch",
+    });
+  }
+
+  // オンラインレート取得不可の店舗
   shops.push({
     shopId: "daikokuya",
+    rates: {},
+    fetchedAt: new Date().toISOString(),
+  });
+
+  shops.push({
+    shopId: "sakura_currency",
+    rates: {},
+    fetchedAt: new Date().toISOString(),
+  });
+
+  shops.push({
+    shopId: "access_ticket",
     rates: {},
     fetchedAt: new Date().toISOString(),
   });

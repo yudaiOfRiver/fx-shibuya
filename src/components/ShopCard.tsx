@@ -9,20 +9,7 @@ export default function ShopCard({ shop }: Props) {
   const t = useTranslations("shop");
   const tShops = useTranslations("shops");
 
-  let shopKey: string;
-  switch (shop.id) {
-    case "travelex":
-      shopKey = "travelex_shibuya";
-      break;
-    case "world_currency_shop":
-      shopKey = "world_currency_shop";
-      break;
-    case "daikokuya":
-      shopKey = "daikokuya";
-      break;
-    default:
-      shopKey = shop.id;
-  }
+  const shopKey = shop.id === "travelex" ? "travelex_shibuya" : shop.id;
 
   return (
     <div className="bg-[#1E293B] rounded-lg border border-slate-700 p-4">

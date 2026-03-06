@@ -37,7 +37,8 @@
   "ranking": {
     "best": "BEST",
     "checkInStore": "Check in store",
-    "noHandling": "Not available"
+    "noHandling": "Not available",
+    "directions": "Route"
   },
   "spread": {
     "good": "Good",
@@ -75,6 +76,21 @@
       "name": "Daikokuya Shibuya",
       "address": "28-3 Udagawacho, Shibuya-ku, Tokyo",
       "hours": "10:00 - 19:30"
+    },
+    "shibuya_exchange": {
+      "name": "Shibuya Exchange",
+      "address": "13-8 Udagawacho, Shibuya-ku, Tokyo",
+      "hours": "Weekdays 11:00 - 18:00 / Weekends 12:00 - 17:00"
+    },
+    "sakura_currency": {
+      "name": "Sakura Currency Shibuya Center-gai",
+      "address": "1F, 26-7 Udagawacho, Shibuya-ku, Tokyo",
+      "hours": "11:00 - 23:00"
+    },
+    "access_ticket": {
+      "name": "Access Ticket Shibuya",
+      "address": "Shibuchika 5-1, 2-2-1 Dogenzaka, Shibuya-ku, Tokyo",
+      "hours": "11:00 - 19:00 (Closed 14:00 - 15:00)"
     }
   }
 }

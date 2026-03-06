@@ -3,7 +3,10 @@ export type CurrencyCode = "USD" | "EUR" | "GBP" | "AUD" | "CNY" | "KRW" | "HKD"
 export type ShopId =
   | "travelex"
   | "world_currency_shop"
-  | "daikokuya";
+  | "daikokuya"
+  | "shibuya_exchange"
+  | "sakura_currency"
+  | "access_ticket";
 
 export type CurrencyRate = {
   sell: number | null; // 外貨を買う（日本円→外貨）：顧客が払う円

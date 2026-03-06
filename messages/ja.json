@@ -37,7 +37,8 @@
   "ranking": {
     "best": "BEST",
     "checkInStore": "店頭確認",
-    "noHandling": "取扱なし"
+    "noHandling": "取扱なし",
+    "directions": "経路"
   },
   "spread": {
     "good": "お得",
@@ -75,6 +76,21 @@
       "name": "大黒屋 質渋谷店",
       "address": "東京都渋谷区宇田川町28-3",
       "hours": "10:00〜19:30"
+    },
+    "shibuya_exchange": {
+      "name": "渋谷エクスチェンジ",
+      "address": "東京都渋谷区宇田川町13-8",
+      "hours": "平日 11:00〜18:00 / 土日祝 12:00〜17:00"
+    },
+    "sakura_currency": {
+      "name": "さくらカレンシーサービス 渋谷センター街店",
+      "address": "東京都渋谷区宇田川町26-7 1F",
+      "hours": "11:00〜23:00"
+    },
+    "access_ticket": {
+      "name": "アクセスチケット 渋谷店",
+      "address": "東京都渋谷区道玄坂2-2-1 しぶちか5-1",
+      "hours": "11:00〜19:00（14:00〜15:00休憩）"
     }
   }
 }

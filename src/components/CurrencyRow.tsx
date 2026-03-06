@@ -20,21 +20,14 @@ function formatRate(rate: number | null | undefined): string {
 }
 
 function getShopNameKey(shopId: string): string {
-  switch (shopId) {
-    case "travelex":
-      return "travelex_shibuya";
-    case "world_currency_shop":
-      return "world_currency_shop";
-    case "daikokuya":
-      return "daikokuya";
-    default:
-      return shopId;
-  }
+  if (shopId === "travelex") return "travelex_shibuya";
+  return shopId;
 }
 
 type RankedShop = {
   shopId: string;
   shopNameKey: string;
+  mapUrl: string;
   rate: number | null;
   spread: number | null;
   status: "ranked" | "no_handling" | "check_in_store" | "unavailable";
@@ -49,38 +42,35 @@ export default function CurrencyRow({ currency, market, shops, activeTab }: Prop
 
   const marketRate = market?.rates[currency] ?? null;
 
-  // Build ranked list
   const ranked: RankedShop[] = shops.map((shop) => {
     const shopMeta = SHOPS.find((s) => s.id === shop.shopId);
     const shopNameKey = getShopNameKey(shop.shopId);
+    const mapUrl = shopMeta?.mapUrl ?? "";
 
     if (!shopMeta) {
-      return { shopId: shop.shopId, shopNameKey, rate: null, spread: null, status: "unavailable" as const, rank: null };
+      return { shopId: shop.shopId, shopNameKey, mapUrl, rate: null, spread: null, status: "unavailable" as const, rank: null };
     }
 
-    // No online rates (e.g. daikokuya)
     if (!shopMeta.hasOnlineRates) {
-      return { shopId: shop.shopId, shopNameKey, rate: null, spread: null, status: "check_in_store" as const, rank: null };
+      return { shopId: shop.shopId, shopNameKey, mapUrl, rate: null, spread: null, status: "check_in_store" as const, rank: null };
     }
 
-    // Error fetching
     if (shop.error || !shop.rates[currency]) {
-      return { shopId: shop.shopId, shopNameKey, rate: null, spread: null, status: "unavailable" as const, rank: null };
+      return { shopId: shop.shopId, shopNameKey, mapUrl, rate: null, spread: null, status: "unavailable" as const, rank: null };
     }
 
     const currencyRate = shop.rates[currency]!;
     const rateValue = activeTab === "sell" ? currencyRate.sell : currencyRate.buy;
 
     if (rateValue == null) {
-      return { shopId: shop.shopId, shopNameKey, rate: null, spread: null, status: "no_handling" as const, rank: null };
+      return { shopId: shop.shopId, shopNameKey, mapUrl, rate: null, spread: null, status: "no_handling" as const, rank: null };
     }
 
     const spread = marketRate != null ? calculateSpread(rateValue, marketRate, activeTab) : null;
 
-    return { shopId: shop.shopId, shopNameKey, rate: rateValue, spread, status: "ranked" as const, rank: null };
+    return { shopId: shop.shopId, shopNameKey, mapUrl, rate: rateValue, spread, status: "ranked" as const, rank: null };
   });
 
-  // Sort: ranked shops first (sell=ascending, buy=descending), then no_handling, then check_in_store/unavailable
   const statusOrder = { ranked: 0, no_handling: 1, unavailable: 2, check_in_store: 3 };
   ranked.sort((a, b) => {
     if (a.status !== b.status) return statusOrder[a.status] - statusOrder[b.status];
@@ -90,12 +80,25 @@ export default function CurrencyRow({ currency, market, shops, activeTab }: Prop
     return 0;
   });
 
-  // Assign ranks to ranked shops
   let rankCounter = 1;
   for (const item of ranked) {
     if (item.status === "ranked") {
       item.rank = rankCounter++;
     }
+  }
+
+  function DirectionsButton({ mapUrl }: { mapUrl: string }) {
+    if (!mapUrl) return null;
+    return (
+      <a
+        href={mapUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="shrink-0 px-2 py-1 text-[11px] rounded bg-slate-700 text-slate-300 hover:bg-slate-600 transition-colors"
+      >
+        {tRanking("directions")}
+      </a>
+    );
   }
 
   return (
@@ -133,15 +136,18 @@ export default function CurrencyRow({ currency, market, shops, activeTab }: Prop
                 key={item.shopId}
                 className="flex items-center justify-between px-4 py-3"
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-mono text-slate-600 w-8">—</span>
-                  <span className="text-sm text-slate-500">
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className="text-sm font-mono text-slate-600 w-8 shrink-0">—</span>
+                  <span className="text-sm text-slate-500 truncate">
                     {tShops(`${item.shopNameKey}.name`)}
                   </span>
                 </div>
-                <span className="text-sm text-slate-500 italic">
-                  {tRanking("checkInStore")}
-                </span>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="text-sm text-slate-500 italic">
+                    {tRanking("checkInStore")}
+                  </span>
+                  <DirectionsButton mapUrl={item.mapUrl} />
+                </div>
               </div>
             );
           }
@@ -152,56 +158,59 @@ export default function CurrencyRow({ currency, market, shops, activeTab }: Prop
                 key={item.shopId}
                 className="flex items-center justify-between px-4 py-3"
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-mono text-slate-600 w-8">—</span>
-                  <span className="text-sm text-slate-500">
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className="text-sm font-mono text-slate-600 w-8 shrink-0">—</span>
+                  <span className="text-sm text-slate-500 truncate">
                     {tShops(`${item.shopNameKey}.name`)}
                   </span>
                 </div>
-                <span className="text-sm text-slate-500 italic">
-                  {tRanking("noHandling")}
-                </span>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="text-sm text-slate-500 italic">
+                    {tRanking("noHandling")}
+                  </span>
+                  <DirectionsButton mapUrl={item.mapUrl} />
+                </div>
               </div>
             );
           }
 
-          // Ranked shop
           return (
             <div
               key={item.shopId}
-              className={`px-4 py-3 ${
-                isBest ? "bg-emerald-500/10" : ""
-              }`}
+              className={`px-4 py-3 ${isBest ? "bg-emerald-500/10" : ""}`}
             >
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 min-w-0">
                   <span
-                    className={`text-sm font-mono font-bold w-8 ${
+                    className={`text-sm font-mono font-bold w-8 shrink-0 ${
                       isBest ? "text-emerald-400" : "text-slate-400"
                     }`}
                   >
                     #{item.rank}
                   </span>
                   <span
-                    className={`text-sm font-medium ${
+                    className={`text-sm font-medium truncate ${
                       isBest ? "text-emerald-300" : "text-slate-200"
                     }`}
                   >
                     {tShops(`${item.shopNameKey}.name`)}
                   </span>
                   {isBest && (
-                    <span className="px-1.5 py-0.5 text-[10px] font-bold bg-emerald-500/20 text-emerald-400 rounded">
+                    <span className="px-1.5 py-0.5 text-[10px] font-bold bg-emerald-500/20 text-emerald-400 rounded shrink-0">
                       {tRanking("best")}
                     </span>
                   )}
                 </div>
-                <span
-                  className={`text-sm font-mono font-semibold ${
-                    isBest ? "text-emerald-300" : "text-slate-200"
-                  }`}
-                >
-                  ¥{formatRate(item.rate)}
-                </span>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span
+                    className={`text-sm font-mono font-semibold ${
+                      isBest ? "text-emerald-300" : "text-slate-200"
+                    }`}
+                  >
+                    ¥{formatRate(item.rate)}
+                  </span>
+                  <DirectionsButton mapUrl={item.mapUrl} />
+                </div>
               </div>
               {item.spread != null && (
                 <div className="mt-1 ml-11">
