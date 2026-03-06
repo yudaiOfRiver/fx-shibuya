@@ -4,41 +4,43 @@ import { fetchWorldCurrencyShopRates } from "./fetchers/worldCurrencyShop";
 import { fetchTravelexRates } from "./fetchers/travelex";
 import { fetchShibuyaExchangeRates } from "./fetchers/shibuyaExchange";
 import { fetchJMarketRates } from "./fetchers/jmarket";
+import { fetchInterbankRates } from "./fetchers/interbank";
+import { fetchDollarRangerRates } from "./fetchers/dollarRanger";
 
 export async function getAllRates(): Promise<AllRatesData> {
-  const [marketResult, wcsResult, travelexResult, shibuyaExResult, jmarketResult] =
-    await Promise.allSettled([
-      fetchMarketRates(),
-      fetchWorldCurrencyShopRates(),
-      fetchTravelexRates(),
-      fetchShibuyaExchangeRates(),
-      fetchJMarketRates(),
-    ]);
+  const [marketResult, ...shopResults] = await Promise.allSettled([
+    fetchMarketRates(),
+    fetchTravelexRates(),
+    fetchWorldCurrencyShopRates(),
+    fetchShibuyaExchangeRates(),
+    fetchJMarketRates(),
+    fetchInterbankRates(),
+    fetchDollarRangerRates(),
+  ]);
 
   const market =
     marketResult.status === "fulfilled" ? marketResult.value : null;
 
-  const shops: ShopRates[] = [];
-
-  const results: [PromiseSettledResult<ShopRates>, string][] = [
-    [travelexResult, "travelex"],
-    [wcsResult, "world_currency_shop"],
-    [shibuyaExResult, "shibuya_exchange"],
-    [jmarketResult, "jmarket"],
+  const shopIds: ShopRates["shopId"][] = [
+    "travelex",
+    "world_currency_shop",
+    "shibuya_exchange",
+    "jmarket",
+    "interbank",
+    "dollar_ranger",
   ];
 
-  for (const [result, shopId] of results) {
+  const shops: ShopRates[] = shopResults.map((result, i) => {
     if (result.status === "fulfilled") {
-      shops.push(result.value);
-    } else {
-      shops.push({
-        shopId: shopId as ShopRates["shopId"],
-        rates: {},
-        fetchedAt: new Date().toISOString(),
-        error: result.reason?.message || "Failed to fetch",
-      });
+      return result.value;
     }
-  }
+    return {
+      shopId: shopIds[i],
+      rates: {},
+      fetchedAt: new Date().toISOString(),
+      error: result.reason?.message || "Failed to fetch",
+    };
+  });
 
   return {
     market,

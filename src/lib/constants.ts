@@ -22,7 +22,7 @@ export const CURRENCY_SYMBOLS: Record<CurrencyCode, string> = {
   TWD: "NT$",
 };
 
-export const AREA_IDS: AreaId[] = ["shibuya", "ikebukuro", "ueno", "tokyo_station"];
+export const AREA_IDS: AreaId[] = ["shibuya", "shinjuku", "ikebukuro", "ueno", "tokyo_station"];
 
 export const AREAS: Record<AreaId, AreaConfig> = {
   shibuya: {
@@ -63,6 +63,47 @@ export const AREAS: Record<AreaId, AreaConfig> = {
         rateSourceId: null,
         mapUrl: "https://maps.google.com/?q=アクセスチケット+渋谷地下街",
         website: "https://www.access-ticket.com/",
+      },
+    ],
+  },
+  shinjuku: {
+    id: "shinjuku",
+    shops: [
+      {
+        shopKey: "travelex_shinjuku",
+        rateSourceId: "travelex",
+        mapUrl: "https://maps.google.com/?q=トラベレックス+小田急新宿",
+        website: "https://www.travelex.co.jp/",
+      },
+      {
+        shopKey: "wcs_shinjuku",
+        rateSourceId: "world_currency_shop",
+        mapUrl: "https://maps.google.com/?q=ワールドカレンシーショップ+新宿西口店",
+        website: "https://www.tokyo-card.co.jp/wcs/",
+      },
+      {
+        shopKey: "interbank_shinjuku",
+        rateSourceId: "interbank",
+        mapUrl: "https://maps.google.com/?q=インターバンク+忍者両替+新宿西口",
+        website: "https://www.interbank.co.jp/ninja/",
+      },
+      {
+        shopKey: "dollar_ranger_shinjuku",
+        rateSourceId: "dollar_ranger",
+        mapUrl: "https://maps.google.com/?q=ドルレンジャー+新宿西口店",
+        website: "https://d-ranger.jp/",
+      },
+      {
+        shopKey: "sakura_currency_shinjuku",
+        rateSourceId: null,
+        mapUrl: "https://maps.google.com/?q=さくらカレンシーサービス+新宿",
+        website: "https://sakura-currency.co.jp/shinjuku/",
+      },
+      {
+        shopKey: "daikokuya_shinjuku",
+        rateSourceId: null,
+        mapUrl: "https://maps.google.com/?q=大黒屋+新宿思い出横丁",
+        website: "https://gaika.e-daikoku.com/",
       },
     ],
   },

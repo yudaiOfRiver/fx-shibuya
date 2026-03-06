@@ -5,7 +5,9 @@ export type ShopId =
   | "travelex"
   | "world_currency_shop"
   | "shibuya_exchange"
-  | "jmarket";
+  | "jmarket"
+  | "interbank"
+  | "dollar_ranger";
 
 export type CurrencyRate = {
   sell: number | null; // 外貨を買う（日本円→外貨）：顧客が払う円
@@ -31,7 +33,7 @@ export type AllRatesData = {
 };
 
 // Area system
-export type AreaId = "shibuya" | "ikebukuro" | "ueno" | "tokyo_station";
+export type AreaId = "shibuya" | "shinjuku" | "ikebukuro" | "ueno" | "tokyo_station";
 
 export type AreaShop = {
   shopKey: string;              // i18n key under "shops" namespace

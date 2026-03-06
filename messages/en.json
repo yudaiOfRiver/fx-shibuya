@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Tokyo Currency Exchange Rates | Live Comparison",
-    "description": "Compare real-time exchange rates at Tokyo money changers. Shibuya, Ikebukuro, Ueno & Tokyo Station — updated every 15 minutes with market rate spreads."
+    "description": "Compare real-time exchange rates at Tokyo money changers. Shibuya, Shinjuku, Ikebukuro, Ueno & Tokyo — updated every 15 minutes with market rate spreads."
   },
   "hero": {
     "realtime": "Updated every 15 minutes",
@@ -24,9 +24,10 @@
   },
   "area": {
     "shibuya": "Shibuya",
+    "shinjuku": "Shinjuku",
     "ikebukuro": "Ikebukuro",
     "ueno": "Ueno",
-    "tokyo_station": "Tokyo Sta."
+    "tokyo_station": "Tokyo"
   },
   "table": {
     "shop": "Shop",
@@ -92,6 +93,36 @@
       "name": "Access Ticket Shibuya",
       "address": "Shibuchika 5-1, 2-2-1 Dogenzaka, Shibuya-ku, Tokyo",
       "hours": "11:00 - 19:00 (Closed 14:00 - 15:00)"
+    },
+    "travelex_shinjuku": {
+      "name": "Travelex Odakyu Shinjuku",
+      "address": "Odakyu Line Shinjuku Sta. Concourse 1F, 1-1-3 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "hours": "8:00 - 20:00"
+    },
+    "wcs_shinjuku": {
+      "name": "World Currency Shop Shinjuku West Exit",
+      "address": "Shinjuku Bldg B2F, 1-8-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "hours": "9:00 - 19:00 (Weekdays) / 11:00 - 17:00 (Weekends & Holidays)"
+    },
+    "interbank_shinjuku": {
+      "name": "Interbank (Ninja Exchange) Shinjuku",
+      "address": "1-2-12 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "hours": "11:00 - 19:00 (Weekends 12:00 - 19:00)"
+    },
+    "dollar_ranger_shinjuku": {
+      "name": "Dollar Ranger Shinjuku West Exit",
+      "address": "Kawayasu Bldg 1F, 7-1-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "hours": "10:00 - 19:00"
+    },
+    "sakura_currency_shinjuku": {
+      "name": "Sakura Currency Shinjuku",
+      "address": "Hakuou Bldg 1F, 5-17-11 Shinjuku, Shinjuku-ku, Tokyo",
+      "hours": "11:00 - 22:00"
+    },
+    "daikokuya_shinjuku": {
+      "name": "Daikokuya Shinjuku Omoide Yokocho",
+      "address": "Omoide Yokocho, 1 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "hours": "10:00 - 19:00"
     },
     "travelex_ikebukuro": {
       "name": "Travelex Ikebukuro West Exit",
