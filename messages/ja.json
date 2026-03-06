@@ -5,7 +5,9 @@
   },
   "hero": {
     "realtime": "15分ごとに自動更新",
-    "headline": "東京で一番お得な両替所が、すぐわかる。"
+    "headline": "東京で一番お得な両替所が、すぐわかる。",
+    "chooseArea": "エリアを選ぶ",
+    "shopCount": "{count}店舗のレートを比較"
   },
   "header": {
     "title": "東京 外貨両替レート比較",

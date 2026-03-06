@@ -1,64 +1,32 @@
-export default function StructuredData() {
+import { AreaId } from "@/lib/types";
+import { AREAS } from "@/lib/constants";
+
+type Props = {
+  areaId: AreaId;
+};
+
+export default function StructuredData({ areaId }: Props) {
+  const areaConfig = AREAS[areaId];
+
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Shibuya FX Rate Comparison",
-    alternateName: "渋谷外貨両替レート比較",
+    name: "Tokyo FX Rate Comparison",
+    alternateName: "東京外貨両替レート比較",
     url: "https://fx-shibuya.vercel.app",
     description:
-      "Compare real-time foreign currency exchange rates at money changers in Shibuya, Tokyo. Updated every 15 minutes.",
+      "Compare real-time foreign currency exchange rates at money changers across Tokyo. Updated every 15 minutes.",
     inLanguage: ["ja", "en", "zh", "ko"],
   };
 
-  const localBusinesses = [
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://fx-shibuya.vercel.app/#travelex-shibuya",
-      name: "Travelex 渋谷店",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "道玄坂2-6-17 渋東シネタワー1F",
-        addressLocality: "渋谷区",
-        addressRegion: "東京都",
-        addressCountry: "JP",
-      },
-      url: "https://www.travelex.co.jp/",
-      openingHours: "Mo-Su 10:30-19:00",
-      currenciesAccepted: "JPY,USD,EUR,GBP,AUD,CNY,KRW,HKD,TWD",
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://fx-shibuya.vercel.app/#wcs",
-      name: "ワールドカレンシーショップ 渋谷道玄坂店",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "道玄坂2-6-1",
-        addressLocality: "渋谷区",
-        addressRegion: "東京都",
-        addressCountry: "JP",
-      },
-      url: "https://www.tokyo-card.co.jp/wcs/",
-      openingHours: ["Mo-Fr 09:30-18:30", "Sa-Su 10:00-17:00"],
-      currenciesAccepted: "JPY,USD,EUR,GBP,AUD,CNY,KRW,HKD,TWD",
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://fx-shibuya.vercel.app/#daikokuya",
-      name: "大黒屋 質渋谷店",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "宇田川町28-3",
-        addressLocality: "渋谷区",
-        addressRegion: "東京都",
-        addressCountry: "JP",
-      },
-      url: "https://www.e-daikoku.com/",
-      openingHours: "Mo-Su 10:00-19:30",
-    },
-  ];
+  const localBusinesses = areaConfig.shops.map((shop) => ({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `https://fx-shibuya.vercel.app/#${shop.shopKey}`,
+    name: shop.shopKey,
+    url: shop.website,
+    currenciesAccepted: "JPY,USD,EUR,GBP,AUD,CNY,KRW,HKD,TWD",
+  }));
 
   return (
     <>

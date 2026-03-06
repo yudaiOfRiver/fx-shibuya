@@ -5,7 +5,9 @@
   },
   "hero": {
     "realtime": "Updated every 15 minutes",
-    "headline": "Find the best exchange rate in Tokyo, instantly."
+    "headline": "Find the best exchange rate in Tokyo, instantly.",
+    "chooseArea": "Choose area",
+    "shopCount": "Compare rates from {count} shops"
   },
   "header": {
     "title": "Tokyo FX Rate Comparison",

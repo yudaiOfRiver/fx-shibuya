@@ -5,7 +5,9 @@
   },
   "hero": {
     "realtime": "15분마다 자동 업데이트",
-    "headline": "도쿄에서 가장 유리한 환전소를 바로 확인."
+    "headline": "도쿄에서 가장 유리한 환전소를 바로 확인.",
+    "chooseArea": "지역 선택",
+    "shopCount": "{count}개 매장의 환율 비교"
   },
   "header": {
     "title": "도쿄 외화 환율 비교",

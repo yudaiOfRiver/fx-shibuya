@@ -5,7 +5,9 @@
   },
   "hero": {
     "realtime": "每15分钟自动更新",
-    "headline": "在东京找到最划算的换钱店。"
+    "headline": "在东京找到最划算的换钱店。",
+    "chooseArea": "选择区域",
+    "shopCount": "比较{count}家店铺的汇率"
   },
   "header": {
     "title": "东京外币兑换汇率比较",
