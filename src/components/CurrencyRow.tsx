@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
-import { CurrencyCode, ShopRates, MarketRates } from "@/lib/types";
-import { SHOPS, CURRENCY_SYMBOLS } from "@/lib/constants";
+import { CurrencyCode, ShopRates, MarketRates, AreaShop } from "@/lib/types";
+import { CURRENCY_SYMBOLS } from "@/lib/constants";
 import { calculateSpread } from "@/lib/spread";
 import SpreadBadge from "./SpreadBadge";
 import type { ActiveTab } from "./RateComparisonTable";
@@ -9,24 +9,18 @@ type Props = {
   currency: CurrencyCode;
   market: MarketRates | null;
   shops: ShopRates[];
+  areaShops: AreaShop[];
   activeTab: ActiveTab;
 };
 
 function formatRate(rate: number | null | undefined): string {
   if (rate == null) return "—";
   if (rate < 1) return rate.toFixed(4);
-  if (rate < 10) return rate.toFixed(2);
   return rate.toFixed(2);
 }
 
-function getShopNameKey(shopId: string): string {
-  if (shopId === "travelex") return "travelex_shibuya";
-  return shopId;
-}
-
 type RankedShop = {
-  shopId: string;
-  shopNameKey: string;
+  shopKey: string;
   mapUrl: string;
   rate: number | null;
   spread: number | null;
@@ -34,7 +28,7 @@ type RankedShop = {
   rank: number | null;
 };
 
-export default function CurrencyRow({ currency, market, shops, activeTab }: Props) {
+export default function CurrencyRow({ currency, market, shops, areaShops, activeTab }: Props) {
   const t = useTranslations("table");
   const tCurrency = useTranslations("currency");
   const tShops = useTranslations("shops");
@@ -42,33 +36,31 @@ export default function CurrencyRow({ currency, market, shops, activeTab }: Prop
 
   const marketRate = market?.rates[currency] ?? null;
 
-  const ranked: RankedShop[] = shops.map((shop) => {
-    const shopMeta = SHOPS.find((s) => s.id === shop.shopId);
-    const shopNameKey = getShopNameKey(shop.shopId);
-    const mapUrl = shopMeta?.mapUrl ?? "";
+  const ranked: RankedShop[] = areaShops.map((areaShop) => {
+    const { shopKey, rateSourceId, mapUrl } = areaShop;
 
-    if (!shopMeta) {
-      return { shopId: shop.shopId, shopNameKey, mapUrl, rate: null, spread: null, status: "unavailable" as const, rank: null };
+    // No online rates for this shop
+    if (rateSourceId == null) {
+      return { shopKey, mapUrl, rate: null, spread: null, status: "check_in_store" as const, rank: null };
     }
 
-    if (!shopMeta.hasOnlineRates) {
-      return { shopId: shop.shopId, shopNameKey, mapUrl, rate: null, spread: null, status: "check_in_store" as const, rank: null };
+    // Find rate data for this source
+    const shopData = shops.find((s) => s.shopId === rateSourceId);
+
+    if (!shopData || shopData.error || !shopData.rates[currency]) {
+      return { shopKey, mapUrl, rate: null, spread: null, status: "unavailable" as const, rank: null };
     }
 
-    if (shop.error || !shop.rates[currency]) {
-      return { shopId: shop.shopId, shopNameKey, mapUrl, rate: null, spread: null, status: "unavailable" as const, rank: null };
-    }
-
-    const currencyRate = shop.rates[currency]!;
+    const currencyRate = shopData.rates[currency]!;
     const rateValue = activeTab === "sell" ? currencyRate.sell : currencyRate.buy;
 
     if (rateValue == null) {
-      return { shopId: shop.shopId, shopNameKey, mapUrl, rate: null, spread: null, status: "no_handling" as const, rank: null };
+      return { shopKey, mapUrl, rate: null, spread: null, status: "no_handling" as const, rank: null };
     }
 
     const spread = marketRate != null ? calculateSpread(rateValue, marketRate, activeTab) : null;
 
-    return { shopId: shop.shopId, shopNameKey, mapUrl, rate: rateValue, spread, status: "ranked" as const, rank: null };
+    return { shopKey, mapUrl, rate: rateValue, spread, status: "ranked" as const, rank: null };
   });
 
   const statusOrder = { ranked: 0, no_handling: 1, unavailable: 2, check_in_store: 3 };
@@ -133,13 +125,13 @@ export default function CurrencyRow({ currency, market, shops, activeTab }: Prop
           if (item.status === "check_in_store") {
             return (
               <div
-                key={item.shopId}
+                key={item.shopKey}
                 className="flex items-center justify-between px-4 py-3"
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <span className="text-sm font-mono text-slate-600 w-8 shrink-0">—</span>
                   <span className="text-sm text-slate-500 truncate">
-                    {tShops(`${item.shopNameKey}.name`)}
+                    {tShops(`${item.shopKey}.name`)}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
@@ -155,13 +147,13 @@ export default function CurrencyRow({ currency, market, shops, activeTab }: Prop
           if (item.status === "no_handling" || item.status === "unavailable") {
             return (
               <div
-                key={item.shopId}
+                key={item.shopKey}
                 className="flex items-center justify-between px-4 py-3"
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <span className="text-sm font-mono text-slate-600 w-8 shrink-0">—</span>
                   <span className="text-sm text-slate-500 truncate">
-                    {tShops(`${item.shopNameKey}.name`)}
+                    {tShops(`${item.shopKey}.name`)}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
@@ -176,7 +168,7 @@ export default function CurrencyRow({ currency, market, shops, activeTab }: Prop
 
           return (
             <div
-              key={item.shopId}
+              key={item.shopKey}
               className={`px-4 py-3 ${isBest ? "bg-emerald-500/10" : ""}`}
             >
               <div className="flex items-center justify-between">
@@ -193,7 +185,7 @@ export default function CurrencyRow({ currency, market, shops, activeTab }: Prop
                       isBest ? "text-emerald-300" : "text-slate-200"
                     }`}
                   >
-                    {tShops(`${item.shopNameKey}.name`)}
+                    {tShops(`${item.shopKey}.name`)}
                   </span>
                   {isBest && (
                     <span className="px-1.5 py-0.5 text-[10px] font-bold bg-emerald-500/20 text-emerald-400 rounded shrink-0">

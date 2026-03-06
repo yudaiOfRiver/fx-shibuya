@@ -3,14 +3,16 @@ import { fetchMarketRates } from "./fetchers/marketRate";
 import { fetchWorldCurrencyShopRates } from "./fetchers/worldCurrencyShop";
 import { fetchTravelexRates } from "./fetchers/travelex";
 import { fetchShibuyaExchangeRates } from "./fetchers/shibuyaExchange";
+import { fetchJMarketRates } from "./fetchers/jmarket";
 
 export async function getAllRates(): Promise<AllRatesData> {
-  const [marketResult, wcsResult, travelexResult, shibuyaExResult] =
+  const [marketResult, wcsResult, travelexResult, shibuyaExResult, jmarketResult] =
     await Promise.allSettled([
       fetchMarketRates(),
       fetchWorldCurrencyShopRates(),
       fetchTravelexRates(),
       fetchShibuyaExchangeRates(),
+      fetchJMarketRates(),
     ]);
 
   const market =
@@ -18,57 +20,25 @@ export async function getAllRates(): Promise<AllRatesData> {
 
   const shops: ShopRates[] = [];
 
-  if (travelexResult.status === "fulfilled") {
-    shops.push(travelexResult.value);
-  } else {
-    shops.push({
-      shopId: "travelex",
-      rates: {},
-      fetchedAt: new Date().toISOString(),
-      error: travelexResult.reason?.message || "Failed to fetch",
-    });
+  const results: [PromiseSettledResult<ShopRates>, string][] = [
+    [travelexResult, "travelex"],
+    [wcsResult, "world_currency_shop"],
+    [shibuyaExResult, "shibuya_exchange"],
+    [jmarketResult, "jmarket"],
+  ];
+
+  for (const [result, shopId] of results) {
+    if (result.status === "fulfilled") {
+      shops.push(result.value);
+    } else {
+      shops.push({
+        shopId: shopId as ShopRates["shopId"],
+        rates: {},
+        fetchedAt: new Date().toISOString(),
+        error: result.reason?.message || "Failed to fetch",
+      });
+    }
   }
-
-  if (wcsResult.status === "fulfilled") {
-    shops.push(wcsResult.value);
-  } else {
-    shops.push({
-      shopId: "world_currency_shop",
-      rates: {},
-      fetchedAt: new Date().toISOString(),
-      error: wcsResult.reason?.message || "Failed to fetch",
-    });
-  }
-
-  if (shibuyaExResult.status === "fulfilled") {
-    shops.push(shibuyaExResult.value);
-  } else {
-    shops.push({
-      shopId: "shibuya_exchange",
-      rates: {},
-      fetchedAt: new Date().toISOString(),
-      error: shibuyaExResult.reason?.message || "Failed to fetch",
-    });
-  }
-
-  // オンラインレート取得不可の店舗
-  shops.push({
-    shopId: "daikokuya",
-    rates: {},
-    fetchedAt: new Date().toISOString(),
-  });
-
-  shops.push({
-    shopId: "sakura_currency",
-    rates: {},
-    fetchedAt: new Date().toISOString(),
-  });
-
-  shops.push({
-    shopId: "access_ticket",
-    rates: {},
-    fetchedAt: new Date().toISOString(),
-  });
 
   return {
     market,

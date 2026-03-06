@@ -1,15 +1,15 @@
 {
   "meta": {
-    "title": "시부야 환전 환율 비교 | 실시간 업데이트",
-    "description": "시부야 환전소 환율을 15분마다 자동 업데이트. Travelex, World Currency Shop 등 3곳의 환율을 시장 환율과 비교하여 가장 유리한 환전소를 한눈에 확인하세요."
+    "title": "도쿄 환전 환율 비교 | 실시간 업데이트",
+    "description": "도쿄 각 지역 환전소 환율을 15분마다 자동 업데이트. 시부야, 이케부쿠로, 우에노, 도쿄역의 환율을 시장 환율과 비교하여 가장 유리한 환전소를 한눈에 확인하세요."
   },
   "hero": {
     "realtime": "15분마다 자동 업데이트",
-    "headline": "시부야에서 가장 유리한 환전소를 바로 확인."
+    "headline": "도쿄에서 가장 유리한 환전소를 바로 확인."
   },
   "header": {
-    "title": "시부야 외화 환율 비교",
-    "subtitle": "시부야 환전소 환율을 실시간 비교"
+    "title": "도쿄 외화 환율 비교",
+    "subtitle": "도쿄 각 지역 환전소 환율을 실시간 비교"
   },
   "lastUpdated": "마지막 업데이트",
   "currency": {
@@ -21,6 +21,12 @@
     "KRW": "한국 원",
     "HKD": "홍콩 달러",
     "TWD": "대만 달러"
+  },
+  "area": {
+    "shibuya": "시부야",
+    "ikebukuro": "이케부쿠로",
+    "ueno": "우에노",
+    "tokyo_station": "도쿄역"
   },
   "table": {
     "shop": "환전소",
@@ -54,7 +60,7 @@
   },
   "footer": {
     "disclaimer": "※표시 환율은 참고용입니다. 실제 환율은 각 매장에서 확인해주세요. 환율은 약 15분마다 업데이트됩니다.",
-    "copyright": "© 2026 시부야 외화 환율 비교"
+    "copyright": "© 2026 도쿄 외화 환율 비교"
   },
   "shops": {
     "travelex_shibuya": {
@@ -62,35 +68,85 @@
       "address": "도쿄도 시부야구 도겐자카 2-6-17 시부토 시네타워 1F",
       "hours": "10:30〜19:00"
     },
-    "travelex_markcity": {
-      "name": "트래블렉스 시부야 마크시티점",
-      "address": "도쿄도 시부야구 도겐자카 1-12-5 시부야 마크시티 1F",
-      "hours": "10:00〜19:00"
-    },
-    "world_currency_shop": {
+    "wcs_shibuya": {
       "name": "월드 커런시숍 시부야 도겐자카점",
       "address": "도쿄도 시부야구 도겐자카 2-6-1",
       "hours": "9:30〜18:30 (평일) / 10:00〜17:00 (주말·공휴일)"
-    },
-    "daikokuya": {
-      "name": "다이코쿠야 시부야점",
-      "address": "도쿄도 시부야구 우다가와초 28-3",
-      "hours": "10:00〜19:30"
     },
     "shibuya_exchange": {
       "name": "시부야 익스체인지",
       "address": "도쿄도 시부야구 우다가와초 13-8",
       "hours": "평일 11:00〜18:00 / 주말 12:00〜17:00"
     },
-    "sakura_currency": {
+    "daikokuya_shibuya": {
+      "name": "다이코쿠야 시부야점",
+      "address": "도쿄도 시부야구 우다가와초 28-3",
+      "hours": "10:00〜19:30"
+    },
+    "sakura_currency_shibuya": {
       "name": "사쿠라 커런시 시부야 센터가이점",
       "address": "도쿄도 시부야구 우다가와초 26-7 1F",
       "hours": "11:00〜23:00"
     },
-    "access_ticket": {
+    "access_ticket_shibuya": {
       "name": "액세스 티켓 시부야점",
       "address": "도쿄도 시부야구 도겐자카 2-2-1 시부치카 5-1",
       "hours": "11:00〜19:00 (14:00〜15:00 휴식)"
+    },
+    "travelex_ikebukuro": {
+      "name": "트래블렉스 이케부쿠로 서쪽출구점",
+      "address": "도쿄도 도시마구 니시이케부쿠로 1-15-9",
+      "hours": "10:30〜19:00"
+    },
+    "jmarket_ikebukuro": {
+      "name": "J마켓 이케부쿠로 토부호프센터점",
+      "address": "도쿄도 도시마구 니시이케부쿠로 1-1 토부호프센터 내",
+      "hours": "10:00〜20:00"
+    },
+    "daikokuya_ikebukuro": {
+      "name": "다이코쿠야 이케부쿠로 동쪽출구점",
+      "address": "도쿄도 도시마구 미나미이케부쿠로 1-27-5",
+      "hours": "10:00〜19:00"
+    },
+    "travelex_ueno": {
+      "name": "트래블렉스 케이세이 우에노점",
+      "address": "도쿄도 다이토구 우에노 공원 1-60 케이세이 우에노역 내",
+      "hours": "9:00〜18:00"
+    },
+    "wcs_ueno": {
+      "name": "월드 커런시숍 우에노 마루이점",
+      "address": "도쿄도 다이토구 우에노 6-15-1 우에노 마루이 1F",
+      "hours": "10:30〜20:00"
+    },
+    "daikokuya_ueno": {
+      "name": "다이코쿠야 우에노 아메요코점",
+      "address": "도쿄도 다이토구 우에노 4-4-9",
+      "hours": "10:00〜19:00"
+    },
+    "sakura_currency_ueno": {
+      "name": "사쿠라 커런시 우에노 아메요코점",
+      "address": "도쿄도 다이토구 우에노 4-1-8",
+      "hours": "10:00〜20:00"
+    },
+    "travelex_tokyo": {
+      "name": "트래블렉스 도쿄역 니혼바시구치점",
+      "address": "도쿄도 치요다구 마루노우치 1-9-1 JR EAST Travel Service Center 내",
+      "hours": "7:30〜20:30"
+    },
+    "wcs_tokyo": {
+      "name": "월드 커런시숍 마루노우치점",
+      "address": "도쿄도 치요다구 마루노우치 3-3-1 신도쿄빌딩 1F",
+      "hours": "9:30〜18:00 (평일만)"
+    },
+    "jmarket_tokyo": {
+      "name": "J마켓 야에치카 야에스지하상가점",
+      "address": "도쿄도 주오구 야에스 2-1 야에스 지하상가 중4호",
+      "hours": "10:00〜20:00"
+    },
+    "daikokuya_tokyo": {
+      "name": "다이코쿠야 도쿄역앞점",
+      "address": "도쿄도 주오구 야에스 1-6-19",
+      "hours": "10:00〜19:00"
     }
   }
 }

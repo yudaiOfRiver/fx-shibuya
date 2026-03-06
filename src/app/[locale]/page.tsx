@@ -1,12 +1,10 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { getAllRates } from "@/lib/getAllRates";
-import { SHOPS } from "@/lib/constants";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LastUpdated from "@/components/LastUpdated";
 import RateComparisonTable from "@/components/RateComparisonTable";
-import ShopCard from "@/components/ShopCard";
 import StructuredData from "@/components/StructuredData";
 
 const BASE_URL = "https://fx-shibuya.vercel.app";
@@ -41,7 +39,7 @@ export async function generateMetadata({
       title,
       description,
       url,
-      siteName: "Shibuya FX Rate Comparison",
+      siteName: "Tokyo FX Rate Comparison",
       locale: locale === "zh" ? "zh_CN" : locale === "ko" ? "ko_KR" : locale === "en" ? "en_US" : "ja_JP",
       type: "website",
     },
@@ -54,7 +52,6 @@ export async function generateMetadata({
 }
 
 export default async function HomePage() {
-  const t = await getTranslations("shop");
   const tHero = await getTranslations("hero");
   const data = await getAllRates();
 
@@ -79,17 +76,6 @@ export default async function HomePage() {
         </div>
 
         <RateComparisonTable data={data} />
-
-        <section className="mt-10">
-          <h2 className="text-lg font-bold text-slate-50 mb-4">
-            {t("info")}
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {SHOPS.map((shop) => (
-              <ShopCard key={shop.id} shop={shop} />
-            ))}
-          </div>
-        </section>
       </main>
 
       <Footer />

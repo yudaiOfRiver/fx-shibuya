@@ -1,15 +1,15 @@
 {
   "meta": {
-    "title": "涩谷外币兑换汇率比较 | 实时更新",
-    "description": "每15分钟自动获取涩谷地区Travelex、World Currency Shop等换钱店的实时汇率，与市场汇率对比，一目了然找到最划算的换钱店。"
+    "title": "东京外币兑换汇率比较 | 实时更新",
+    "description": "每15分钟自动获取东京各区域换钱店的实时汇率。涩谷、池袋、上野、东京站 — 与市场汇率对比，一目了然找到最划算的换钱店。"
   },
   "hero": {
     "realtime": "每15分钟自动更新",
-    "headline": "在涩谷找到最划算的换钱店。"
+    "headline": "在东京找到最划算的换钱店。"
   },
   "header": {
-    "title": "涩谷外币兑换汇率比较",
-    "subtitle": "实时比较涩谷地区兑换店汇率"
+    "title": "东京外币兑换汇率比较",
+    "subtitle": "实时比较东京各区域兑换店汇率"
   },
   "lastUpdated": "最后更新",
   "currency": {
@@ -21,6 +21,12 @@
     "KRW": "韩元",
     "HKD": "港元",
     "TWD": "新台币"
+  },
+  "area": {
+    "shibuya": "涩谷",
+    "ikebukuro": "池袋",
+    "ueno": "上野",
+    "tokyo_station": "东京站"
   },
   "table": {
     "shop": "兑换店",
@@ -54,7 +60,7 @@
   },
   "footer": {
     "disclaimer": "※显示汇率仅供参考。实际汇率请到各店铺确认。汇率约每15分钟更新一次。",
-    "copyright": "© 2026 涩谷外币兑换汇率比较"
+    "copyright": "© 2026 东京外币兑换汇率比较"
   },
   "shops": {
     "travelex_shibuya": {
@@ -62,35 +68,85 @@
       "address": "东京都涩谷区道玄坂2-6-17 涩东电影大厦1F",
       "hours": "10:30〜19:00"
     },
-    "travelex_markcity": {
-      "name": "Travelex 涩谷Mark City店",
-      "address": "东京都涩谷区道玄坂1-12-5 涩谷Mark City 1F",
-      "hours": "10:00〜19:00"
-    },
-    "world_currency_shop": {
+    "wcs_shibuya": {
       "name": "World Currency Shop 涩谷道玄坂店",
       "address": "东京都涩谷区道玄坂2-6-1",
       "hours": "9:30〜18:30（工作日）/ 10:00〜17:00（周末及节假日）"
-    },
-    "daikokuya": {
-      "name": "大黑屋 涩谷店",
-      "address": "东京都涩谷区宇田川町28-3",
-      "hours": "10:00〜19:30"
     },
     "shibuya_exchange": {
       "name": "涩谷Exchange",
       "address": "东京都涩谷区宇田川町13-8",
       "hours": "工作日 11:00〜18:00 / 周末 12:00〜17:00"
     },
-    "sakura_currency": {
+    "daikokuya_shibuya": {
+      "name": "大黑屋 涩谷店",
+      "address": "东京都涩谷区宇田川町28-3",
+      "hours": "10:00〜19:30"
+    },
+    "sakura_currency_shibuya": {
       "name": "Sakura Currency 涩谷中心街店",
       "address": "东京都涩谷区宇田川町26-7 1F",
       "hours": "11:00〜23:00"
     },
-    "access_ticket": {
+    "access_ticket_shibuya": {
       "name": "Access Ticket 涩谷店",
       "address": "东京都涩谷区道玄坂2-2-1 涩谷地下商业街5-1",
       "hours": "11:00〜19:00（14:00〜15:00休息）"
+    },
+    "travelex_ikebukuro": {
+      "name": "Travelex 池袋西口店",
+      "address": "东京都丰岛区西池袋1-15-9",
+      "hours": "10:30〜19:00"
+    },
+    "jmarket_ikebukuro": {
+      "name": "J-Market 池袋东武Hope Center店",
+      "address": "东京都丰岛区西池袋1-1 东武Hope Center内",
+      "hours": "10:00〜20:00"
+    },
+    "daikokuya_ikebukuro": {
+      "name": "大黑屋 池袋东口买取中心",
+      "address": "东京都丰岛区南池袋1-27-5",
+      "hours": "10:00〜19:00"
+    },
+    "travelex_ueno": {
+      "name": "Travelex 京成上野店",
+      "address": "东京都台东区上野公园1-60 京成上野站内",
+      "hours": "9:00〜18:00"
+    },
+    "wcs_ueno": {
+      "name": "World Currency Shop 上野丸井店",
+      "address": "东京都台东区上野6-15-1 上野丸井1F",
+      "hours": "10:30〜20:00"
+    },
+    "daikokuya_ueno": {
+      "name": "大黑屋 上野阿美横店",
+      "address": "东京都台东区上野4-4-9",
+      "hours": "10:00〜19:00"
+    },
+    "sakura_currency_ueno": {
+      "name": "Sakura Currency 上野阿美横店",
+      "address": "东京都台东区上野4-1-8",
+      "hours": "10:00〜20:00"
+    },
+    "travelex_tokyo": {
+      "name": "Travelex 东京站日本桥口店",
+      "address": "东京都千代田区丸之内1-9-1 JR EAST Travel Service Center内",
+      "hours": "7:30〜20:30"
+    },
+    "wcs_tokyo": {
+      "name": "World Currency Shop 丸之内店",
+      "address": "东京都千代田区丸之内3-3-1 新东京大厦1F",
+      "hours": "9:30〜18:00（仅工作日）"
+    },
+    "jmarket_tokyo": {
+      "name": "J-Market 八重洲地下街店",
+      "address": "东京都中央区八重洲2-1 八重洲地下街中4号",
+      "hours": "10:00〜20:00"
+    },
+    "daikokuya_tokyo": {
+      "name": "大黑屋 东京站前店",
+      "address": "东京都中央区八重洲1-6-19",
+      "hours": "10:00〜19:00"
     }
   }
 }

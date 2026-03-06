@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { AllRatesData } from "@/lib/types";
-import { CURRENCIES } from "@/lib/constants";
+import { useTranslations } from "next-intl";
+import { AllRatesData, AreaId } from "@/lib/types";
+import { CURRENCIES, AREAS, AREA_IDS } from "@/lib/constants";
 import CurrencyRow from "./CurrencyRow";
 
 type Props = {
@@ -13,10 +14,33 @@ export type ActiveTab = "sell" | "buy";
 
 export default function RateComparisonTable({ data }: Props) {
   const [activeTab, setActiveTab] = useState<ActiveTab>("sell");
+  const [selectedArea, setSelectedArea] = useState<AreaId>("shibuya");
+  const tArea = useTranslations("area");
+
+  const areaConfig = AREAS[selectedArea];
 
   return (
     <div>
-      {/* Pill switcher */}
+      {/* Area selector */}
+      <div className="flex justify-center mb-4">
+        <div className="inline-flex bg-[#1E293B] rounded-full p-1 flex-wrap gap-0.5">
+          {AREA_IDS.map((areaId) => (
+            <button
+              key={areaId}
+              onClick={() => setSelectedArea(areaId)}
+              className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
+                selectedArea === areaId
+                  ? "bg-cyan-400 text-slate-900"
+                  : "text-slate-400 hover:text-slate-200"
+              }`}
+            >
+              {tArea(areaId)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Sell/Buy pill switcher */}
       <div className="flex justify-center mb-6">
         <div className="inline-flex bg-[#1E293B] rounded-full p-1">
           <button
@@ -45,10 +69,11 @@ export default function RateComparisonTable({ data }: Props) {
       <div className="grid gap-4">
         {CURRENCIES.map((currency) => (
           <CurrencyRow
-            key={currency}
+            key={`${selectedArea}-${currency}`}
             currency={currency}
             market={data.market}
             shops={data.shops}
+            areaShops={areaConfig.shops}
             activeTab={activeTab}
           />
         ))}

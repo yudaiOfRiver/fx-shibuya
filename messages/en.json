@@ -1,15 +1,15 @@
 {
   "meta": {
-    "title": "Shibuya Currency Exchange Rates | Live Comparison",
-    "description": "Compare real-time exchange rates at Shibuya money changers. Travelex, World Currency Shop & more — updated every 15 minutes with market rate spreads."
+    "title": "Tokyo Currency Exchange Rates | Live Comparison",
+    "description": "Compare real-time exchange rates at Tokyo money changers. Shibuya, Ikebukuro, Ueno & Tokyo Station — updated every 15 minutes with market rate spreads."
   },
   "hero": {
     "realtime": "Updated every 15 minutes",
-    "headline": "Find the best exchange rate in Shibuya, instantly."
+    "headline": "Find the best exchange rate in Tokyo, instantly."
   },
   "header": {
-    "title": "Shibuya FX Rate Comparison",
-    "subtitle": "Compare exchange rates at Shibuya money changers in real time"
+    "title": "Tokyo FX Rate Comparison",
+    "subtitle": "Compare exchange rates at Tokyo money changers in real time"
   },
   "lastUpdated": "Last updated",
   "currency": {
@@ -21,6 +21,12 @@
     "KRW": "Korean Won",
     "HKD": "Hong Kong Dollar",
     "TWD": "Taiwan Dollar"
+  },
+  "area": {
+    "shibuya": "Shibuya",
+    "ikebukuro": "Ikebukuro",
+    "ueno": "Ueno",
+    "tokyo_station": "Tokyo Sta."
   },
   "table": {
     "shop": "Shop",
@@ -54,7 +60,7 @@
   },
   "footer": {
     "disclaimer": "* Displayed rates are for reference only. Please confirm actual rates at each shop. Rates are updated approximately every 15 minutes.",
-    "copyright": "© 2026 Shibuya FX Rate Comparison"
+    "copyright": "© 2026 Tokyo FX Rate Comparison"
   },
   "shops": {
     "travelex_shibuya": {
@@ -62,35 +68,85 @@
       "address": "Shibuya Cinetower 1F, 2-6-17 Dogenzaka, Shibuya-ku, Tokyo",
       "hours": "10:30 - 19:00"
     },
-    "travelex_markcity": {
-      "name": "Travelex Shibuya Mark City",
-      "address": "Shibuya Mark City 1F, 1-12-5 Dogenzaka, Shibuya-ku, Tokyo",
-      "hours": "10:00 - 19:00"
-    },
-    "world_currency_shop": {
+    "wcs_shibuya": {
       "name": "World Currency Shop Shibuya Dogenzaka",
       "address": "2-6-1 Dogenzaka, Shibuya-ku, Tokyo",
       "hours": "9:30 - 18:30 (Weekdays) / 10:00 - 17:00 (Weekends & Holidays)"
-    },
-    "daikokuya": {
-      "name": "Daikokuya Shibuya",
-      "address": "28-3 Udagawacho, Shibuya-ku, Tokyo",
-      "hours": "10:00 - 19:30"
     },
     "shibuya_exchange": {
       "name": "Shibuya Exchange",
       "address": "13-8 Udagawacho, Shibuya-ku, Tokyo",
       "hours": "Weekdays 11:00 - 18:00 / Weekends 12:00 - 17:00"
     },
-    "sakura_currency": {
+    "daikokuya_shibuya": {
+      "name": "Daikokuya Shibuya",
+      "address": "28-3 Udagawacho, Shibuya-ku, Tokyo",
+      "hours": "10:00 - 19:30"
+    },
+    "sakura_currency_shibuya": {
       "name": "Sakura Currency Shibuya Center-gai",
       "address": "1F, 26-7 Udagawacho, Shibuya-ku, Tokyo",
       "hours": "11:00 - 23:00"
     },
-    "access_ticket": {
+    "access_ticket_shibuya": {
       "name": "Access Ticket Shibuya",
       "address": "Shibuchika 5-1, 2-2-1 Dogenzaka, Shibuya-ku, Tokyo",
       "hours": "11:00 - 19:00 (Closed 14:00 - 15:00)"
+    },
+    "travelex_ikebukuro": {
+      "name": "Travelex Ikebukuro West Exit",
+      "address": "1-15-9 Nishi-Ikebukuro, Toshima-ku, Tokyo",
+      "hours": "10:30 - 19:00"
+    },
+    "jmarket_ikebukuro": {
+      "name": "J-Market Ikebukuro Tobu Hope Center",
+      "address": "Tobu Hope Center, 1-1 Nishi-Ikebukuro, Toshima-ku, Tokyo",
+      "hours": "10:00 - 20:00"
+    },
+    "daikokuya_ikebukuro": {
+      "name": "Daikokuya Ikebukuro East Exit",
+      "address": "1-27-5 Minami-Ikebukuro, Toshima-ku, Tokyo",
+      "hours": "10:00 - 19:00"
+    },
+    "travelex_ueno": {
+      "name": "Travelex Keisei Ueno",
+      "address": "Keisei Ueno Station, 1-60 Ueno Koen, Taito-ku, Tokyo",
+      "hours": "9:00 - 18:00"
+    },
+    "wcs_ueno": {
+      "name": "World Currency Shop Ueno Marui",
+      "address": "Ueno Marui 1F, 6-15-1 Ueno, Taito-ku, Tokyo",
+      "hours": "10:30 - 20:00"
+    },
+    "daikokuya_ueno": {
+      "name": "Daikokuya Ueno Ameyoko",
+      "address": "4-4-9 Ueno, Taito-ku, Tokyo",
+      "hours": "10:00 - 19:00"
+    },
+    "sakura_currency_ueno": {
+      "name": "Sakura Currency Ueno Ameyoko",
+      "address": "4-1-8 Ueno, Taito-ku, Tokyo",
+      "hours": "10:00 - 20:00"
+    },
+    "travelex_tokyo": {
+      "name": "Travelex Tokyo Station Nihombashi Exit",
+      "address": "JR EAST Travel Service Center, 1-9-1 Marunouchi, Chiyoda-ku, Tokyo",
+      "hours": "7:30 - 20:30"
+    },
+    "wcs_tokyo": {
+      "name": "World Currency Shop Marunouchi",
+      "address": "Shin-Tokyo Bldg 1F, 3-3-1 Marunouchi, Chiyoda-ku, Tokyo",
+      "hours": "9:30 - 18:00 (Weekdays only)"
+    },
+    "jmarket_tokyo": {
+      "name": "J-Market Yaechika Underground",
+      "address": "Yaesu Underground Mall, 2-1 Yaesu, Chuo-ku, Tokyo",
+      "hours": "10:00 - 20:00"
+    },
+    "daikokuya_tokyo": {
+      "name": "Daikokuya Tokyo Station",
+      "address": "1-6-19 Yaesu, Chuo-ku, Tokyo",
+      "hours": "10:00 - 19:00"
     }
   }
 }

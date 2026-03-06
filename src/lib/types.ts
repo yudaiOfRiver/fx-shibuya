@@ -1,12 +1,11 @@
 export type CurrencyCode = "USD" | "EUR" | "GBP" | "AUD" | "CNY" | "KRW" | "HKD" | "TWD";
 
+// Rate source IDs (data fetchers)
 export type ShopId =
   | "travelex"
   | "world_currency_shop"
-  | "daikokuya"
   | "shibuya_exchange"
-  | "sakura_currency"
-  | "access_ticket";
+  | "jmarket";
 
 export type CurrencyRate = {
   sell: number | null; // 外貨を買う（日本円→外貨）：顧客が払う円
@@ -31,12 +30,17 @@ export type AllRatesData = {
   generatedAt: string;
 };
 
-export type ShopMeta = {
-  id: ShopId;
-  nameKey: string; // i18n key for shop name
-  addressKey: string;
-  hoursKey: string;
-  website: string;
+// Area system
+export type AreaId = "shibuya" | "ikebukuro" | "ueno" | "tokyo_station";
+
+export type AreaShop = {
+  shopKey: string;              // i18n key under "shops" namespace
+  rateSourceId: ShopId | null;  // null = no online rates
   mapUrl: string;
-  hasOnlineRates: boolean;
+  website: string;
+};
+
+export type AreaConfig = {
+  id: AreaId;
+  shops: AreaShop[];
 };
