@@ -22,7 +22,9 @@
     "CNY": "Chinese Yuan",
     "KRW": "Korean Won",
     "HKD": "Hong Kong Dollar",
-    "TWD": "Taiwan Dollar"
+    "TWD": "Taiwan Dollar",
+    "THB": "Thai Baht",
+    "SGD": "Singapore Dollar"
   },
   "area": {
     "shibuya": "Shibuya",

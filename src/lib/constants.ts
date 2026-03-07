@@ -9,6 +9,8 @@ export const CURRENCIES: CurrencyCode[] = [
   "KRW",
   "HKD",
   "TWD",
+  "THB",
+  "SGD",
 ];
 
 export const CURRENCY_SYMBOLS: Record<CurrencyCode, string> = {
@@ -20,6 +22,8 @@ export const CURRENCY_SYMBOLS: Record<CurrencyCode, string> = {
   KRW: "₩",
   HKD: "HK$",
   TWD: "NT$",
+  THB: "฿",
+  SGD: "S$",
 };
 
 export const AREA_IDS: AreaId[] = ["shibuya", "shinjuku", "ikebukuro", "ueno", "tokyo_station"];

@@ -1,4 +1,4 @@
-export type CurrencyCode = "USD" | "EUR" | "GBP" | "AUD" | "CNY" | "KRW" | "HKD" | "TWD";
+export type CurrencyCode = "USD" | "EUR" | "GBP" | "AUD" | "CNY" | "KRW" | "HKD" | "TWD" | "THB" | "SGD";
 
 // Rate source IDs (data fetchers)
 export type ShopId =
